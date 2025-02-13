@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: whale_user
+      POSTGRES_PASSWORD: whale_password
+      POSTGRES_DB: whale_db
+    ports:
+      - "5439:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "8009:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://whale_user:whale_password@db:5432/whale_db
+    volumes:
+      - .:/app
+
+volumes:
+  postgres_data:
