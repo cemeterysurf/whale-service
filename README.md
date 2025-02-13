@@ -23,6 +23,11 @@ git clone https://github.com/cemeterysurf/whale-service.git
 brew install --cask docker
 ```
 
+### Установите Git через Homebrew:
+```
+brew install git
+```
+
 ### Запустите Docker:
 
 После установки откройте Docker Desktop (его можно найти в Applications), дождитесь полной загрузки и убедитесь, что Docker работает.
